@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "outDir": "./output/",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "target": "es2017",
+      "removeComments": true,
+      "preserveConstEnums": false,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitReturns": true,
+      "noImplicitAny": false,
+      "baseUrl": ".",
+      "noUnusedLocals": true,
+      "noImplicitThis": true
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+  

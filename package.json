@@ -1,0 +1,31 @@
+{
+  "name": "fs-zipper",
+  "version": "1.0.0",
+  "description": "pack directory and file by zip-stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuyuekeng/fs-zipper.git"
+  },
+  "keywords": [
+    "zip",
+    "fs",
+    "memory-fs"
+  ],
+  "author": "liuyuekeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuyuekeng/fs-zipper/issues"
+  },
+  "homepage": "https://github.com/liuyuekeng/fs-zipper#readme",
+  "dependencies": {
+    "zip-stream": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^11.9.5",
+    "memory-fs": "^0.4.1"
+  }
+}
