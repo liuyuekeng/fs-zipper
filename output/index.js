@@ -52,7 +52,7 @@ class MemoryFsZipper {
                 });
             }
             else if (stats.isFile()) {
-                self.entry(self.fs.createReadStream(path), {
+                self.entry(self.fs.readFileSync(path), {
                     name,
                     date: stats.mtime,
                     mode: 420,

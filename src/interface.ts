@@ -1,7 +1,7 @@
 export interface MyFs {
     statSync: Function,
     readdirSync: Function,
-    createReadStream: Function
+    readFileSync: Function
 }
 
 export interface Archive {
