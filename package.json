@@ -1,6 +1,6 @@
 {
   "name": "fs-zipper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "pack directory and file by zip-stream",
   "main": "output/index.js",
   "scripts": {
