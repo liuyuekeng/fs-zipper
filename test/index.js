@@ -10,10 +10,12 @@ mfs.mkdirSync('/dir/subdir');
 mfs.writeFileSync('/dir/subdir/level1', 'level1', {encoding: 'utf8'});
 mfs.mkdirSync('/dir/subdir/subsubdir');
 mfs.writeFileSync('/dir/subdir/subsubdir/level2', 'level2', {encoding: 'utf8'});
+mfs.writeFileSync('/file', 'file1', {encoding: 'utf8'});
 let output = fs.createWriteStream(path.resolve(__dirname, '../ziptest.zip'));
 let zipper = new MemoryFsZipper(mfs, {zlib: {level: 9}});
 process.nextTick(() => {
     zipper.directory('/dir');
+    zipper.file('/file');
     zipper.pipe(output);
     zipper.finalize();
 })

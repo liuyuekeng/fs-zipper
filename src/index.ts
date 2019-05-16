@@ -37,7 +37,7 @@ export default class MemoryFsZipper {
         this.appending = this.appending.then(() => this.pEntry(source, data));
     }
     directory(dir: string) {
-        if (!this.fs.statSync(dir).isDirectory) {
+        if (!this.fs.statSync(dir).isDirectory()) {
             return;
         }
         let self = this;
@@ -61,6 +61,19 @@ export default class MemoryFsZipper {
                     type: "file"
                 });
             }
+        });
+    }
+    file(file: string) {
+        let stats = this.fs.statSync(file);
+        if (!stats.isFile()) {
+            return;
+        }
+        let name = nodePath.basename(file);
+        this.entry(this.fs.readFileSync(file), {
+            name,
+            date: stats.mtime,
+            mode: 420,
+            type: "file"
         });
     }
     finalize() {
