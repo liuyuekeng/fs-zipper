@@ -17,6 +17,16 @@ function matcher(fs: MyFs, path: string, callback: Function) {
     }
 }
 
+interface fileData {
+    type?: string;
+    name?: string;
+    linkname?: string;
+    date?: Date|string;
+    mode?: number;
+    store?: boolean;
+    comment?: string;
+  }
+
 export default class MemoryFsZipper {
     archive: Archive
     appending: Promise<any>
@@ -33,7 +43,7 @@ export default class MemoryFsZipper {
             return p;
         }
     }
-    entry(source: string|Buffer|Stream, data: object) {
+    entry(source: string|Buffer|Stream, data: fileData) {
         this.appending = this.appending.then(() => this.pEntry(source, data));
     }
     directory(dir: string) {
@@ -54,12 +64,17 @@ export default class MemoryFsZipper {
                     type:"directory"
                 })
             } else if (stats.isFile()) {
-                self.entry(self.fs.readFileSync(path), {
+                let entryData:fileData = {
                     name,
                     date: stats.mtime,
                     mode: 420,
                     type: "file"
-                });
+                }
+                let content = self.fs.readFileSync(path);
+                if (content.length === 0) {
+                    entryData.store = true;
+                }
+                self.entry(content, entryData);
             }
         });
     }

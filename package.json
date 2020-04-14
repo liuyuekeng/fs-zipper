@@ -1,10 +1,11 @@
 {
   "name": "fs-zipper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "pack directory and file by zip-stream",
   "main": "output/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
   },
   "devDependencies": {
     "@types/node": "^11.9.5",
-    "memory-fs": "^0.4.1"
+    "@types/typescript": "^2.0.0",
+    "memory-fs": "^0.4.1",
+    "typescript": "^3.8.3"
   }
 }

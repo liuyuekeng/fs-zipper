@@ -52,12 +52,17 @@ class MemoryFsZipper {
                 });
             }
             else if (stats.isFile()) {
-                self.entry(self.fs.readFileSync(path), {
+                let entryData = {
                     name,
                     date: stats.mtime,
                     mode: 420,
                     type: "file"
-                });
+                };
+                let content = self.fs.readFileSync(path);
+                if (content.length === 0) {
+                    entryData.store = true;
+                }
+                self.entry(content, entryData);
             }
         });
     }
